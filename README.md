@@ -1,1 +1,1 @@
-# Do It - To Do List Porject from The Odin Project
+# Do It
