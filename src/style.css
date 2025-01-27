@@ -1,317 +1,269 @@
-body{
+html, body {
     margin: 0;
-    font-family: "Roboto", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #e3f2ff;
+    color: #1a1a48;
+    font-family: "Poppins", serif;
+    font-weight: 500;
     font-style: normal;
-    font-variation-settings:
-    "wdth" 100;
-    background-color: #FAF3E0;
-
 }
 
-h1, h2, h3{
-    font-family: "Merriweather", serif;
-    font-weight: 400;
-    font-style: normal;
-    color: #6B4226;
+nav {
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: space-between;
+    padding-block: 16px;
+    border-bottom: #1a1a48 solid 2px;
+    flex-shrink: 0; /* Prevents the nav from shrinking */
 }
 
-p{
-    color: #6B4226;
+nav svg {
+    width: 40px;
+    margin-inline: 40px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-button{
-    background-color: #D88A1B;
-    color: white;
+nav svg:hover{
+    transform: scale(1.1);
+}
+
+nav h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-grow: 1; /* Makes main take up the remaining space */
+}
+
+aside {
+    background-color: #f0f8ff;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 100%; /* This now works correctly within the flex container */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+}
+
+aside .h2{
+    display: flex;
+    justify-content: space-between;
+    column-gap: 120px;
+}
+
+aside .h2 h2 {
+    margin: 0;
+}
+
+aside .h2 svg{
+    width: 25px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+aside .h2 svg:hover{
+    transform: scale(1.1);
+}
+
+aside .tasks-header{
+    margin-top: 60px;
+}
+
+aside .projects-header{
+    margin-top: 40px;
+}
+
+aside ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+}   
+
+aside ul li{
+    margin-block: 5px;
+    padding-block: 5px;
+    padding-left: 5px;
+    border-radius: 4px;
+    font-size: 1.3rem;
+}
+
+.selected{
+    background-color: #eee0e0;
+}
+
+/* General Styling */
+.project {
+    padding: 20px;
+    margin-left: 20px;
+    width: 60%;
+}
+
+.project h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    margin-block: 0;
+    margin-top: 10px;
+}
+
+.project .project-title{
+    font-size: 2rem;
+    color: #1a1a48;
+    font-weight: 600;
+    background-color: #1a1a4800;
+    font-family: "Poppins", sans-serif;
+    resize: none; /* Disable manual resizing */
+    border: none;
     outline: none;
-    padding: 10px 20px;
+    overflow: hidden; /* Prevent scrollbar from appearing */
+    transition: height 0.2s ease-in-out; /* Smooth height adjustment */
+    width: 95%;
+}
+
+.project .project-title::placeholder{
+    color: #1a1a48ac;
+}
+
+.project .project-description {
+    margin-bottom: 20px;
     font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
+    color: rgba(26, 26, 72, 0.7);
+    background-color: #1a1a4800;
+    font-family: "Poppins", sans-serif;
+    resize: none; /* Disable manual resizing */
     border: none;
-    margin-inline: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
-    transition: background-color 0.3s;
+    outline: none;
+    overflow: hidden; /* Prevent scrollbar from appearing */
+    transition: height 0.2s ease-in-out; /* Smooth height adjustment */
+    height: 54px;
+    width: 80%;
 }
 
-button:hover{
-    background-color: #B5671A;
-}
-
-header{
-    text-align: center;
-    padding-bottom: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
-    margin-bottom: 50px;
-}
-
-header h1{
-    margin: 0;
-    padding-block: 20px;
-}
-
-footer{
-    background-color: #D88A1B;
-    text-align: center;
-    margin-top: 50px;
-}
-
-footer p{
-    margin: 0;
-    padding-block: 30px;
-    color: white;
-}
-
-#content {
-    transition: 0.5s ease-in-out
-}
-
-#hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-#hero img {
-    max-width: 100%; /* Ensure the image scales properly */
-    height: auto;
-}
-
-#hero div {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centering the div */
-    text-align: center; /* Optional: Align text inside the div */
-}
-
-#hero div h2{
-    color: white;
-    font-size: 4rem;
-}
-
-#about{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 200px;
-    margin: 70px 0px;
-    padding: 20px 0px;
-    background-color: #ffeec0;
-    text-align: center;
-}
-
-#about p{
-    width: 20%;
-    line-height: 30px;
-    word-spacing: 3px;
-}
-
-#about img{
-    max-width: 30%;
-    border-radius: 5px;
-    border: #6B4226 solid 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
-}
-
-#visit{
-    text-align: center;
-    padding-bottom: 60px;
-}
-
-#visit h2{
-    font-size: 3rem;
-}
-
-#visit .hours{
-    display: flex;
-    gap: 150px;
-    justify-content: center;
-}
-
-.hours div{
-    margin-left: 100px;
-}
-
-.hours div h3{
-    font-size: 2rem;
-}
-
-.hours div p{
-    line-height: 30px;
-}
-
-.hours img{
-    max-width: 30%;
-    border-radius: 5px;
-    border: #6B4226 solid 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
-}
-
-#menu h2{
-    text-align: center;
-    font-size: 3rem;
-}
-
-#menu p{
-    text-align: center;
-    font-size: 1.4rem;
-}
-
-/* Parent Grid Container */
-.dishes {
-    text-align: center;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    gap: 20px; /* Spacing between cards */
-    padding: 20px;
-    margin: 0 80px;
-}
-
-/* Individual Card Styling */
-.dish {
-    cursor: pointer;
+/* Task Container */
+.tasks {
     display: flex;
     flex-direction: column;
+    gap: 15px;
+}
+
+.task {
+    display: flex;
     align-items: center;
-    justify-content: space-between;
-    text-align: center;
-    background-color: #fffcf5;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Image Styling */
-.dish img {
-    width: 100%; /* Full width of card */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px 10px 0 0; /* Round top corners */
-    object-fit: cover; /* Ensures the image fills the space without distortion */
-}
-
-/* Card Title */
-.dish h3 {
-    font-size: 1.5rem;
-    margin: 15px 0 10px; /* Spacing around the title */
-    color: #6B4226; /* Aesthetic color */
-}
-
-.dish h3::first-letter {
-    text-transform: capitalize;
-}
-
-/* Card Description */
-.dish p {
-    font-size: 1rem;
-    color: #333333;
-    margin-bottom: 10px;
-}
-
-/* Price Tag */
-.dish span {
-    font-weight: bold;
-    color: #D88A1B; /* Accent color */
-    font-size: 1.2rem;
-}
-
-/* Hover Effect */
-.dish:hover {
-    transform: translateY(-5px); /* Lift card on hover */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
-}
-
-#contact-us {
-    background-color: #f9f9f9;
-    padding: 50px 0;
-}
-
-.contact-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.contact-info {
-    flex: 1;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.contact-info h2 {
-    color: #6b4226;
-    font-size: 2rem;
-}
-
-.contact-info p {
-    font-size: 1.1rem;
-    color: #321f12;
-    margin-bottom: 20px;
-}
-
-.contact-info ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.contact-info ul li {
-    margin-bottom: 10px;
-    font-size: 1rem;
-    color: #321f12;
-}
-
-.contact-form {
-    flex: 1;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form h3 {
-    color: #6b4226;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-}
-
-.contact-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.contact-form label {
-    font-size: 1rem;
-    color: #321f12;
-}
-
-.contact-form input, .contact-form textarea {
     padding: 10px;
-    font-size: 1rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 10px;
+    width: 100%;
 }
 
-.contact-form button {
-    background-color: #d88a1b;
-    color: white;
-    padding: 12px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.2s ease, border 0.2s ease;
 }
 
-.contact-form button:hover {
-    background-color: #b5671a;
+.checkmark.unchecked:hover {
+    background-color: #f0f0f0;
 }
 
+.checkmark.checked {
+    background-color: green;
+    border-color: green;
+}
+
+.task-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    background: none;
+    color: #1a1a48;
+    flex: 1;
+    padding: 5px;
+    transition: border-color 0.2s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.task-desc {
+    flex: 2;
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: #f9f9f900;
+    font-size: 0.9rem;
+    font-family: "Poppins", sans-serif;
+    height: 60px;
+    overflow-y: auto;
+    color: #1a1a48ac;
+}
+
+.task-date {
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 20%;
+    font-size: 0.9rem;
+    background-color: #f9f9f900;
+    font-family: "Poppins", sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.favourite-icon {
+    margin-inline: 2px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.favourite-icon:hover {
+    transform: scale(1.1);
+}
+
+.delete-icon {
+    margin-inline: 2px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.delete-icon:hover {
+    transform: scale(1.1);
+}
+
+
+.add-task{
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    transition: transform 0.2s ease;
+}
+
+.add-task:hover{
+    transform: scale(1.1);
+}
+
+.add-task svg{
+    width: 50px;
+}
+
+.add-task h3{
+    margin: 0;
+    margin-top: 4px;
+}
