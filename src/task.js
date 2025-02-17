@@ -1,9 +1,20 @@
 export default class Task {
-    constructor(title, description, date, favourited) {
-        this.title = title;
-        this.description = description;
-        this.date = date;
-        this.favourited = favourited;
+    constructor() {
+        this.title = 'New Task';
+        this.description = '';
+        this.date = '';
+        this.favourited = false;
     }
 
+    changeTitle(newTitle){
+        this.title = newTitle
+    }
+    
+    changeDescription(newDescription){
+        this.description = newDescription
+    }
+
+    changeDate(newDate){
+        this.date = newDate;
+    }
 }
