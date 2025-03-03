@@ -33,7 +33,11 @@ const ToDoApp = () => {
                 
                 if (currentProject && projectTitle.value.trim() !== '') {
                     currentProject.title = projectTitle.value.trim(); // Update project title
+                    projectListItems[currentProjectNo].innerHTML = projectTitle.value.trim()
+                    
+
                     console.log('Updated Projects:', projects);
+                    
                 }
             });
         };
@@ -41,7 +45,6 @@ const ToDoApp = () => {
         // Change description of project
         const attachDescriptionListener = () => {
             let projectDescription = document.querySelector('.project .project-description'); // Get the current description element
-            console.log('asfsad')
             
             if (!projectDescription) return; // Exit if the element does not exist
         
@@ -55,6 +58,26 @@ const ToDoApp = () => {
             });
         };
 
+        // Change title of task
+        const attachTitleListenerTask = () => {
+            document.body.addEventListener('blur', (event) => {
+                if (event.target.classList.contains('task-title')) {
+                    let taskElements = document.querySelectorAll('.task-title'); // Select all task titles
+                    let taskIndex = Array.from(taskElements).indexOf(event.target); // Get index of edited task
+                    
+                    if (taskIndex !== -1) {
+                        let currentProject = projects[currentProjectNo]; // Get current project
+                        let task = currentProject.tasks[taskIndex]; // Get the corresponding task
+        
+                        if (task && event.target.value.trim() !== '') {
+                            task.title = event.target.value.trim(); // Update task title
+                            console.log('Updated Tasks:', currentProject.tasks);
+                        }
+                    }
+                }
+            }, true); // Use capture phase to ensure it works for dynamically added tasks
+        };
+        
 
 
 
@@ -63,6 +86,7 @@ const ToDoApp = () => {
         renderProjectPage(Project0.title, Project0.description, Project0.tasks)
         attachTitleListener();
         attachDescriptionListener();
+        attachTitleListenerTask();
 
         // Navbar elements
         const hamburgerMenu = document.querySelector('.hamburger-menu');
@@ -192,11 +216,15 @@ const ToDoApp = () => {
             
         })
 
-        // Project interactions
-        
-        // Project pages
-        // renderProjectPage('asf', 'sdafas', [testTask])
-
+        // Task interactions
+        document.body.addEventListener('click', (event) => {
+            if (event.target.classList.contains('add-task')) {
+                let currentProject = projects[currentProjectNo]; // Get current project
+                const newTask = new Task();
+                currentProject.tasks.push(newTask);
+                renderProjectPage(currentProject.title, currentProject.description, currentProject.tasks);
+            }
+        });
 
 
         

@@ -103,19 +103,21 @@ export const renderProjectPage = (title, description, tasks) => {
 
     // Create and append the "Add Task" section
     const addTask = document.createElement('div');
-    addTask.setAttribute('class', 'add-task');
+    addTask.setAttribute('class', 'add-task add-task-full');
 
     const addTaskIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    addTaskIcon.setAttribute('class', 'size-4');
+    addTaskIcon.setAttribute('class', 'size-4 add-task');
     addTaskIcon.setAttribute('viewBox', '0 0 16 16');
     const addTaskPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     addTaskPath.setAttribute('fill-rule', 'evenodd');
     addTaskPath.setAttribute('clip-rule', 'evenodd');
+    addTaskPath.setAttribute('class', 'add-task');
     addTaskPath.setAttribute('d', 'M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14Zm.75-10.25v2.5h2.5a.75.75 0 0 1 0 1.5h-2.5v2.5a.75.75 0 0 1-1.5 0v-2.5h-2.5a.75.75 0 0 1 0-1.5h2.5v-2.5a.75.75 0 0 1 1.5 0Z');
     addTaskIcon.appendChild(addTaskPath);
     addTask.appendChild(addTaskIcon);
 
     const addTaskText = document.createElement('h3');
+    addTaskText.setAttribute('class', 'add-task');
     addTaskText.textContent = 'Add Task';
     addTask.appendChild(addTaskText);
 

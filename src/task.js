@@ -4,6 +4,7 @@ export default class Task {
         this.description = '';
         this.date = '';
         this.favourited = false;
+        this.completed = false;
     }
 
     changeTitle(newTitle){
